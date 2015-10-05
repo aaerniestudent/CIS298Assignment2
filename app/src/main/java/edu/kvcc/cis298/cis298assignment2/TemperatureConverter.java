@@ -51,6 +51,15 @@ public class TemperatureConverter extends AppCompatActivity {
         mTo3 = (RadioButton) findViewById(R.id.to_temp_3);
         mTo4 = (RadioButton) findViewById(R.id.to_temp_4);
 
+        final int fromcase1 = mFrom1.getId();
+        final int fromcase2 = mFrom1.getId();
+        final int fromcase3 = mFrom1.getId();
+        final int fromcase4 = mFrom1.getId();
+        final int tocase1 = mTo1.getId();
+        final int tocase2 = mTo1.getId();
+        final int tocase3 = mTo1.getId();
+        final int tocase4 = mTo1.getId();
+
         mResult.setText(conversion);
 
         mConvertButton = (Button) findViewById(R.id.convert_button);
@@ -61,8 +70,13 @@ public class TemperatureConverter extends AppCompatActivity {
                 int selectedToId = mToGroup.getCheckedRadioButtonId();
                 double input = Integer.parseInt(mInputText.getText().toString());
                 double result;
+                //some way to check if mInputText is null
+                //PROBLEM HERE
                 if (mInputText.getText().toString() != "") {
+
                     switch (selectedFromId) {
+                        //PROBLEM HERE
+                        //I need to compare the ids to their spot in the radio button group.
                         case 1: {
                             //celsius
                             switch (selectedToId) {
