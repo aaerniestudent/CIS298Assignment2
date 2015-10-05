@@ -121,14 +121,14 @@
         android:padding="20dp"/>
 
     <TextView
-        android:id="@+id/result_from"
+        android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:textSize="20dp"/>
 
     <TextView
-        android:id="@+id/equation_from"
+        android:id="@+id/equation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp"
