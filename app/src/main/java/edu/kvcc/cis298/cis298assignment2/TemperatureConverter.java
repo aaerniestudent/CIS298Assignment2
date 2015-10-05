@@ -4,8 +4,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class TemperatureConverter extends AppCompatActivity {
+    private RadioGroup mFromGroup;
+    private RadioGroup mToGroup;
+    private Button mConvertButton;
+    private EditText mInputText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

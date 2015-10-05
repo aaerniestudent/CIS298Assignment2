@@ -1,6 +1,45 @@
 <resources>
     <string name="app_name">CIS298Assignment2</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="con_convert">Convert:</string>
+    <string name="con_from">From</string>
+    <string name="con_to">To</string>
+    <string name="convert_button">Convert</string>
+
+    
+    <string name="temp_name_1">Celsius</string>
+    <string name="temp_name_2">Fahrenheit</string>
+    <string name="temp_name_3">Kelvin</string>
+    <string name="temp_name_4">Rankin</string>
+
+    <string name="temp_symb_1">°C</string>
+    <string name="temp_symb_2">°F</string>
+    <string name="temp_symb_3">K</string>
+    <string name="temp_symb_4">°R</string>
+
+    <string name="equation_celsius_1">[°C] = [°C]</string>
+    <string name="equation_celsius_2">[°C] = ([°F]−32)*(5/9)</string>
+    <string name="equation_celsius_3">[°C] = [K]−273.15</string>
+    <string name="equation_celsius_4">[°C] = ([°R]−491.67)*(5/9)</string>
+
+    <string name="equation_fahrenheit_1">[°F] = [°C]*(9/5)+32</string>
+    <string name="equation_fahrenheit_2">[°F] = [°F]</string>
+    <string name="equation_fahrenheit_3">[°F] = [K]*(9/5)−459.67</string>
+    <string name="equation_fahrenheit_4">[°F] = [°R]−459.67</string>
+
+    <string name="equation_kelvin_1">[K] = [°C]+273.15</string>
+    <string name="equation_kelvin_2">[K] = ([°F]+459.67)*(5/9)</string>
+    <string name="equation_kelvin_3">[K] = [K]</string>
+    <string name="equation_kelvin_4">[K] = [°R]*(5/9)</string>
+
+    <string name="equation_Rankin_1">[°R] = ([°C]+273.15)*(9/5)</string>
+    <string name="equation_Rankin_2">[°R] = [°F]+459.67</string>
+    <string name="equation_Rankin_3">[°R] = [K]*(5/9)</string>
+    <string name="equation_Rankin_4">[°R] = [°R]</string>
+
+
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
 </resources>
