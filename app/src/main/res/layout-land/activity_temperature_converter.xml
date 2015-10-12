@@ -25,6 +25,7 @@
             android:inputType="number"
             android:id="@+id/input"
             android:layout_width="150dp"
+            android:freezesText="true"
             android:layout_toRightOf="@id/label_convert"
             android:textSize="30dp"
             android:padding="5dp"
@@ -130,15 +131,19 @@
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:freezesText="true"
+        android:layout_gravity="center"
         android:padding="10dp"
         android:textSize="24dp"/>
 
     <TextView
         android:id="@+id/equation"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:freezesText="true"
+        android:layout_gravity="center"
         android:padding="10dp"
         android:textSize="14dp"/>
 

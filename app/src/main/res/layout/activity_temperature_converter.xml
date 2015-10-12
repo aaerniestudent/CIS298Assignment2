@@ -22,6 +22,7 @@
         android:inputType="numberDecimal"
         android:id="@+id/input"
         android:layout_width="150dp"
+        android:freezesText="true"
         android:textSize="30dp"
         android:padding="5dp"
         android:layout_height="wrap_content" />
@@ -122,15 +123,19 @@
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:freezesText="true"
+        android:layout_gravity="center"
         android:padding="24dp"
         android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/equation"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:freezesText="true"
+        android:layout_gravity="center"
         android:padding="24dp"
         android:textSize="20dp"/>
 

@@ -36,10 +36,10 @@
 
     <string name="equation_Rankin_1">[°R] = ([°C]+273.15)*(9/5)</string>
     <string name="equation_Rankin_2">[°R] = [°F]+459.67</string>
-    <string name="equation_Rankin_3">[°R] = [K]*(5/9)</string>
+    <string name="equation_Rankin_3">[°R] = [K]*(9/5)</string>
     <string name="equation_Rankin_4">[°R] = [°R]</string>
 
 
-    <string name="correct_toast">Correct!</string>
-    <string name="incorrect_toast">Incorrect!</string>
+    <string name="error_input_toast">Error: Please input a number.</string>
+    <string name="error_button_toast">Error: Please select conversions.</string>
 </resources>
