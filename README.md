@@ -34,7 +34,4 @@ http://stackoverflow.com/questions/24391809/android-check-if-edittext-is-empty
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-The classes don't work together.
-Doesn't give both warnings.
-I'm lazy, but that isn't a program error.
-
+The classes don't work together, still for some reason...
