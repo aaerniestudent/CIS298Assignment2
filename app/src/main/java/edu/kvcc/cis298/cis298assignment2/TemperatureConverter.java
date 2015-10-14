@@ -33,6 +33,9 @@ public class TemperatureConverter extends AppCompatActivity {
     private Convert convert;
 
     int messageResId = 0;
+    int equation = 0;
+    int mType = 0;
+    String mEndResult = "";
 
     protected void showError(int messageResId){
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
@@ -44,6 +47,8 @@ public class TemperatureConverter extends AppCompatActivity {
         setContentView(R.layout.activity_temperature_converter);
 
         mInputText = (EditText) findViewById(R.id.input);
+        mResult = (TextView) findViewById(R.id.result);
+        mEquation = (TextView) findViewById(R.id.equation);
         mFromGroup = (RadioGroup) findViewById(R.id.from_group);
         mToGroup = (RadioGroup) findViewById(R.id.to_group);
         mFrom1 = (RadioButton) findViewById(R.id.from_temp_1);
@@ -67,26 +72,208 @@ public class TemperatureConverter extends AppCompatActivity {
                         if ((mFromGroup.getCheckedRadioButtonId() == -1) | (mToGroup.getCheckedRadioButtonId() == -1)) {
                             messageResId = R.string.error_button_toast;
                         } else {
-                            Log.i("tag","0");
                             int selectedFrom = mFromGroup.getCheckedRadioButtonId();
                             int selectedTo = mToGroup.getCheckedRadioButtonId();
-                            double input = Double.parseDouble(mInputText.getText().toString());
-                            Log.i("tag","1");
-                            int equation = convert.equation(selectedFrom, selectedTo);
-                            Log.i("tag","2");
-                            double result = convert.Calculation(selectedFrom, selectedTo, input);
-                            Log.i("tag","3");
-                            result = result * 100;
-                            result = Math.round(result);
-                            result = result / 100;
-                            input = input * 100;
-                            input = Math.round(input);
-                            input = input / 100;
+                            double mInput = Double.parseDouble(mInputText.getText().toString());
+                            switch (selectedFrom) {
+                                case (R.id.from_temp_1): {
+                                    //celsius
+                                    switch (selectedTo) {
+                                        case (R.id.to_temp_1): {
+                                            equation = R.string.equation_celsius_1;
+                                            mType = 1;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_2): {
+                                            equation = R.string.equation_celsius_2;
+                                            mType = 2;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_3): {
+                                            equation = R.string.equation_celsius_3;
+
+                                            mType = 3;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_4): {
+                                            equation = R.string.equation_celsius_4;
+
+                                            mType = 4;
+                                        }
+                                        break;
+                                        default:
+                                    }
+                                }
+                                break;
+                                case (R.id.from_temp_2): {
+                                    //Fahrenheit
+                                    switch (R.id.to_temp_1) {
+                                        case 1: {
+                                            equation = R.string.equation_fahrenheit_1;
+                                            mType = 5;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_2): {
+                                            equation = R.string.equation_fahrenheit_2;
+                                            mType = 6;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_3): {
+                                            equation = R.string.equation_fahrenheit_3;
+                                            mType = 7;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_4): {
+                                            equation = R.string.equation_fahrenheit_4;
+                                            mType = 8;
+                                        }
+                                        break;
+                                        default:
+                                    }
+                                }
+                                break;
+                                case (R.id.from_temp_3): {
+                                    //Kelvin
+                                    switch (selectedTo) {
+                                        case (R.id.to_temp_1): {
+                                            equation = R.string.equation_kelvin_1;
+                                            mType = 9;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_2): {
+                                            equation = R.string.equation_kelvin_2;
+                                            mType = 10;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_3): {
+                                            equation = R.string.equation_kelvin_3;
+                                            mType = 11;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_4): {
+                                            equation = R.string.equation_kelvin_4;
+                                            mType = 12;
+                                        }
+                                        break;
+                                        default:
+                                    }
+                                }
+                                break;
+                                case (R.id.from_temp_4): {
+                                    //Rankin
+                                    switch (R.id.to_temp_1) {
+                                        case (R.id.to_temp_1): {
+                                            equation = R.string.equation_Rankin_1;
+                                            mType = 13;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_2): {
+                                            equation = R.string.equation_Rankin_2;
+                                            mType = 14;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_3): {
+                                            equation = R.string.equation_Rankin_3;
+                                            mType = 15;
+                                        }
+                                        break;
+                                        case (R.id.to_temp_4): {
+                                            equation = R.string.equation_Rankin_4;
+                                            mType = 16;
+                                        }
+                                        break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+                                default:
+                            }
+                            double mResult = convert.Calculation(mType, mInput);
+                            mResult = mResult * 100;
+                            mResult = Math.round(mResult);
+                            mResult = mResult / 100;
+                            mInput = mInput * 100;
+                            mInput = Math.round(mInput);
+                            mInput = mInput / 100;
                             Log.i("tag","4");
-                            String mEndResult = convert.Result(selectedFrom, selectedTo, input, result);
-                            Log.i("tag","5");
+                            switch (equation) {
+                                //celsius
+                                case 1: {
+                                    mEndResult = Double.toString(mInput) + " °C = " + Double.toString(mResult) + " °C";
+                                }
+                                break;
+                                case 2: {
+                                    mEndResult = Double.toString(mInput) + " °C = " + Double.toString(mResult) + " °F";
+                                }
+                                break;
+                                case 3: {
+                                    mEndResult = Double.toString(mInput) + " °C = " + Double.toString(mResult) + " K";
+                                }
+                                break;
+                                case 4: {
+                                    mEndResult = Double.toString(mInput) + " °C = " + Double.toString(mResult) + " °R";
+                                }
+                                break;
+                                //Fahrenheit
+                                case 5: {
+                                    mEndResult = Double.toString(mInput) + " °F = " + Double.toString(mResult) + " °C";
+                                }
+                                break;
+                                case 6: {
+                                    mEndResult = Double.toString(mInput) + " °F = " + Double.toString(mResult) + " °F";
+                                }
+                                break;
+                                case 7: {
+                                    mEndResult = Double.toString(mInput) + " °F = " + Double.toString(mResult) + " K";
+                                }
+                                break;
+                                case 8: {
+                                    mEndResult = Double.toString(mInput) + " °F = " + Double.toString(mResult) + " °R";
+                                }
+                                break;
+                                //Kelvin
+                                case 9: {
+                                    mEndResult = Double.toString(mInput) + " K = " + Double.toString(mResult) + " °C";
+                                }
+                                break;
+                                case 10: {
+                                    mEndResult = Double.toString(mInput) + " K = " + Double.toString(mResult) + " °F";
+                                }
+                                break;
+                                case 11: {
+                                    mEndResult = Double.toString(mInput) + " K = " + Double.toString(mResult) + " K";
+                                }
+                                break;
+                                case 12: {
+                                    mEndResult = Double.toString(mInput) + " K = " + Double.toString(mResult) + " °R";
+                                }
+                                break;
+                                //Rankin
+                                case 13: {
+                                    mEndResult = Double.toString(mInput) + " °R = " + Double.toString(mResult) + " °C";
+
+                                }
+                                break;
+                                case 14: {
+                                    mEndResult = Double.toString(mInput) + " °R = " + Double.toString(mResult) + " °F";
+
+                                }
+                                break;
+                                case 15: {
+                                    mEndResult = Double.toString(mInput) + " °R = " + Double.toString(mResult) + " K";
+
+                                }
+                                break;
+                                case 16: {
+                                    mEndResult = Double.toString(mInput) + " °R = " + Double.toString(mResult) + " °R";
+
+                                }
+                                break;
+                                default:
+                                    break;
+                            }
                             mResult.setText(mEndResult);
-                            Log.i("tag", "6");
                             mEquation.setText(equation);
                         }
                     }

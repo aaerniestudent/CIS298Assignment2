@@ -13,314 +13,84 @@ import android.widget.Toast;
  * Created by Anthony on 10/11/2015.
 */
 public class Convert  extends AppCompatActivity {
+    double result = 0;
+    String conversion = "";
 
 
+    public double Calculation(int equationType, double input){
 
-
-    public double Calculation(int selectedFrom, int selectedTo, double input){
-
-        double result = 0;
-
-            switch (selectedFrom) {
-                case (R.id.from_temp_1): {
+            switch (equationType) {
                     //celsius
-                    switch (selectedTo) {
-                        case (R.id.to_temp_1): {
+                        case 1: {
                             result = input;
                         }
                         break;
-                        case (R.id.to_temp_2): {
+                        case 2: {
                             result = (input - 32) * (5 / 9);
                         }
                         break;
-                        case (R.id.to_temp_3): {
+                        case 3: {
                             result = input - 273.15;
                         }
                         break;
-                        case (R.id.to_temp_4): {
+                        case 4: {
                             result = (input - 491.67) * (5 / 9);
                         }
                         break;
-                        default:
-                    }
-                }
-                break;
-                case (R.id.from_temp_2): {
                     //Fahrenheit
-                    switch (R.id.to_temp_1) {
-                        case 1: {
+                        case 5: {
                             result = input * (9 / 5) + 32;
                         }
                         break;
-                        case (R.id.to_temp_2): {
+                        case 6: {
                             result = input;
                         }
                         break;
-                        case (R.id.to_temp_3): {
+                        case 7: {
                             result = input * (9 / 5) - 459.67;
                         }
                         break;
-                        case (R.id.to_temp_4): {
+                        case 8: {
                             result = input - 459.67;
                         }
                         break;
-                        default:
-                    }
-                }
-                break;
-                case (R.id.from_temp_3): {
                     //Kelvin
-                    switch (selectedTo) {
-                        case (R.id.to_temp_1): {
+                        case 9: {
                             result = input + 273.15;
                         }
                         break;
-                        case (R.id.to_temp_2): {
+                        case 10: {
                             result = (input + 459.67) * (5 / 9);
                         }
                         break;
-                        case (R.id.to_temp_3): {
+                        case 11: {
                             result = input;
                         }
                         break;
-                        case (R.id.to_temp_4): {
+                        case 12: {
                             result = input * (5 / 9);
                         }
                         break;
-                        default:
-                    }
-                }
-                break;
-                case (R.id.from_temp_4): {
                     //Rankin
-                    switch (R.id.to_temp_1) {
-                        case 1: {
+                        case 13: {
                             result = (input + 273.15) * (9 / 5);
                         }
                         break;
-                        case (R.id.to_temp_2): {
+                        case 14: {
                             result = input + 459.67;
                         }
                         break;
-                        case (R.id.to_temp_3): {
+                        case 15: {
                             result = input * (9 / 5);
                         }
                         break;
-                        case (R.id.to_temp_4): {
+                        case 16: {
                             result = input;
                         }
                         break;
                         default:
                             break;
                     }
-                }
-                break;
-                default:
-        }
         return result;
     }
-    public String Result(int selectedFrom, int selectedTo, double input, double result){
-
-        String conversion = "";
-
-        switch (selectedFrom) {
-            case (R.id.from_temp_1): {
-                //celsius
-                switch (selectedTo) {
-                    case (R.id.to_temp_1): {
-                        conversion = input + R.string.temp_symb_1 + " = " + result + R.string.temp_symb_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        conversion = input + R.string.temp_symb_1 + " = " + result + R.string.temp_symb_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        conversion = input + R.string.temp_symb_1 + " = " + result + R.string.temp_symb_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        conversion = input + R.string.temp_symb_1 + " = " + result + R.string.temp_symb_4;
-                    }
-                    break;
-                    default:
-                }
-            }
-            break;
-            case (R.id.from_temp_2): {
-                //Fahrenheit
-                switch (R.id.to_temp_1) {
-                    case 1: {
-                        conversion = input + R.string.temp_symb_2 + " = " + result + R.string.temp_symb_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        conversion = input + R.string.temp_symb_2 + " = " + result + R.string.temp_symb_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        conversion = input + R.string.temp_symb_2 + " = " + result + R.string.temp_symb_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        conversion = input + R.string.temp_symb_2 + " = " + result + R.string.temp_symb_4;
-                    }
-                    break;
-                    default:
-                }
-            }
-            break;
-            case (R.id.from_temp_3): {
-                //Kelvin
-                switch (selectedTo) {
-                    case (R.id.to_temp_1): {
-                        conversion = input + R.string.temp_symb_3 + " = " + result + R.string.temp_symb_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        conversion = input + R.string.temp_symb_3 + " = " + result + R.string.temp_symb_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        conversion = input + R.string.temp_symb_3 + " = " + result + R.string.temp_symb_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        conversion = input + R.string.temp_symb_3 + " = " + result + R.string.temp_symb_4;
-                    }
-                    break;
-                    default:
-                }
-            }
-            break;
-            case (R.id.from_temp_4): {
-                //Rankin
-                switch (R.id.to_temp_1) {
-                    case 1: {
-                        conversion = input + R.string.temp_symb_4 + " = " + result + R.string.temp_symb_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        conversion = input + R.string.temp_symb_4 + " = " + result + R.string.temp_symb_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        conversion = input + R.string.temp_symb_4 + " = " + result + R.string.temp_symb_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        conversion = input + R.string.temp_symb_4 + " = " + result + R.string.temp_symb_4;
-                    }
-                    break;
-                    default:
-                        break;
-                }
-            }
-            break;
-            default:
-        }
-        return conversion;
-    }
-    public int equation(int selectedFrom, int selectedTo){
-
-        int equation = 0;
-        switch (selectedFrom) {
-            case (R.id.from_temp_1): {
-                //celsius
-                switch (selectedTo) {
-                    case (R.id.to_temp_1): {
-                        equation = R.string.equation_celsius_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        equation = R.string.equation_celsius_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        equation = R.string.equation_celsius_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        equation = R.string.equation_celsius_4;
-                    }
-                    break;
-                    default:
-                }
-            }
-            break;
-            case (R.id.from_temp_2): {
-                //Fahrenheit
-                switch (R.id.to_temp_1) {
-                    case 1: {
-                        equation = R.string.equation_fahrenheit_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        equation = R.string.equation_fahrenheit_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        equation = R.string.equation_fahrenheit_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        equation = R.string.equation_fahrenheit_4;
-                    }
-                    break;
-                    default:
-                }
-            }
-            break;
-            case (R.id.from_temp_3): {
-                //Kelvin
-                switch (selectedTo) {
-                    case (R.id.to_temp_1): {
-                        equation = R.string.equation_kelvin_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        equation = R.string.equation_kelvin_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        equation = R.string.equation_kelvin_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        equation = R.string.equation_kelvin_4;
-                    }
-                    break;
-                    default:
-                }
-            }
-            break;
-            case (R.id.from_temp_4): {
-                //Rankin
-                switch (R.id.to_temp_1) {
-                    case 1: {
-                        equation = R.string.equation_Rankin_1;
-                    }
-                    break;
-                    case (R.id.to_temp_2): {
-                        equation = R.string.equation_Rankin_2;
-                    }
-                    break;
-                    case (R.id.to_temp_3): {
-                        equation = R.string.equation_Rankin_3;
-                    }
-                    break;
-                    case (R.id.to_temp_4): {
-                        equation = R.string.equation_Rankin_4;
-                    }
-                    break;
-                    default:
-                        break;
-                }
-            }
-            break;
-            default:
-        }
-        return equation;
-    }
-
 }
