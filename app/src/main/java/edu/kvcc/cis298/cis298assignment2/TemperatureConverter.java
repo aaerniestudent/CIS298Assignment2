@@ -1,5 +1,6 @@
 package edu.kvcc.cis298.cis298assignment2;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,8 +30,13 @@ public class TemperatureConverter extends AppCompatActivity {
     private RadioButton mTo2;
     private RadioButton mTo3;
     private RadioButton mTo4;
+    private Convert convert;
 
-    int errorToast = 0;
+    int messageResId = 0;
+
+    protected void showError(int messageResId){
+        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,21 +61,43 @@ public class TemperatureConverter extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-
-                    int selectedFrom = mFromGroup.getCheckedRadioButtonId();
-                    int selectedTo = mToGroup.getCheckedRadioButtonId();
-                    double input = Double.parseDouble(mInputText.getText().toString());
-                    new Convert(selectedFrom, selectedTo, input);
-                    mResult.setText(conversion);
-                    mEquation.setText(equation);
+                    if (mInputText.getText().toString().trim().length() == 0) {
+                        messageResId = R.string.error_input_toast;
+                    } else {
+                        if ((mFromGroup.getCheckedRadioButtonId() == -1) | (mToGroup.getCheckedRadioButtonId() == -1)) {
+                            messageResId = R.string.error_button_toast;
+                        } else {
+                            Log.i("tag","0");
+                            int selectedFrom = mFromGroup.getCheckedRadioButtonId();
+                            int selectedTo = mToGroup.getCheckedRadioButtonId();
+                            double input = Double.parseDouble(mInputText.getText().toString());
+                            Log.i("tag","1");
+                            int equation = convert.equation(selectedFrom, selectedTo);
+                            Log.i("tag","2");
+                            double result = convert.Calculation(selectedFrom, selectedTo, input);
+                            Log.i("tag","3");
+                            result = result * 100;
+                            result = Math.round(result);
+                            result = result / 100;
+                            input = input * 100;
+                            input = Math.round(input);
+                            input = input / 100;
+                            Log.i("tag","4");
+                            String mEndResult = convert.Result(selectedFrom, selectedTo, input, result);
+                            Log.i("tag","5");
+                            mResult.setText(mEndResult);
+                            Log.i("tag", "6");
+                            mEquation.setText(equation);
+                        }
+                    }
                 } catch (NumberFormatException e) {
-                    errorToast = R.string.error_input_toast;
+                    messageResId = R.string.other_error_toast;
+                }
+                if (messageResId != 0) {
+                    showError(messageResId);
+                    messageResId = 0;
                 }
 
-                if (errorToast != 0) {
-                    Toast.makeText(this, errorToast, Toast.LENGTH_SHORT).show();
-                    errorToast = 0;
-                }
             }
         });
     }

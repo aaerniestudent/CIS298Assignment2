@@ -42,4 +42,5 @@
 
     <string name="error_input_toast">Error: Please input a number.</string>
     <string name="error_button_toast">Error: Please select conversions.</string>
+    <string name="other_error_toast">Error: Number too large.</string>
 </resources>
