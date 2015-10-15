@@ -35,8 +35,4 @@ http://stackoverflow.com/questions/24992936/how-to-check-if-a-radiobutton-is-che
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
-<<<<<<< HEAD
 none...
-=======
-The classes don't work together, still for some reason...
->>>>>>> 3877d5cbd012395943f652b6cc700dffea3f9ef7
