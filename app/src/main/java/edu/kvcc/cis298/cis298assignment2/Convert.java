@@ -12,13 +12,11 @@ import android.widget.Toast;
 /**
  * Created by Anthony on 10/11/2015.
 */
-public class Convert  extends AppCompatActivity {
-    double result = 0;
-    String conversion = "";
+public class Convert{
 
 
     public double Calculation(int equationType, double input){
-
+        double result = 0;
             switch (equationType) {
                     //celsius
                         case 1: {
@@ -26,20 +24,22 @@ public class Convert  extends AppCompatActivity {
                         }
                         break;
                         case 2: {
-                            result = (input - 32) * (5 / 9);
+
+                            Log.i("tag",Double.toString(input));
+                            result = ((5.0 / 9.0) * input + 32.0);
                         }
                         break;
                         case 3: {
-                            result = input - 273.15;
+                            result = input + 273.15;
                         }
                         break;
                         case 4: {
-                            result = (input - 491.67) * (5 / 9);
+                            result = (5.0 / 9.0 * input + 491.67);
                         }
                         break;
                     //Fahrenheit
                         case 5: {
-                            result = input * (9 / 5) + 32;
+                            result = ((9.0 / 5.0) * input - 32.0);
                         }
                         break;
                         case 6: {
@@ -47,20 +47,20 @@ public class Convert  extends AppCompatActivity {
                         }
                         break;
                         case 7: {
-                            result = input * (9 / 5) - 459.67;
+                            result = (9.0 / 5.0 * input + 459.67);
                         }
                         break;
                         case 8: {
-                            result = input - 459.67;
+                            result = (input + 459.67);
                         }
                         break;
                     //Kelvin
                         case 9: {
-                            result = input + 273.15;
+                            result = (input - 273.15);
                         }
                         break;
                         case 10: {
-                            result = (input + 459.67) * (5 / 9);
+                            result = (5.0 / 9.0 * input - 459.67);
                         }
                         break;
                         case 11: {
@@ -68,20 +68,20 @@ public class Convert  extends AppCompatActivity {
                         }
                         break;
                         case 12: {
-                            result = input * (5 / 9);
+                            result = (5.0 / 9.0 * input);
                         }
                         break;
                     //Rankin
                         case 13: {
-                            result = (input + 273.15) * (9 / 5);
+                            result = ((9.0 / 5.0) * input - 273.15);
                         }
                         break;
                         case 14: {
-                            result = input + 459.67;
+                            result = (input - 459.67);
                         }
                         break;
                         case 15: {
-                            result = input * (9 / 5);
+                            result = ((9.0 / 5.0) * input);
                         }
                         break;
                         case 16: {

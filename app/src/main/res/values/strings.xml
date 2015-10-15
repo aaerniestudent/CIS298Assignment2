@@ -14,11 +14,6 @@
     <string name="temp_name_3">Kelvin</string>
     <string name="temp_name_4">Rankin</string>
 
-    <string name="temp_symb_1">°C</string>
-    <string name="temp_symb_2">°F</string>
-    <string name="temp_symb_3">K</string>
-    <string name="temp_symb_4">°R</string>
-
     <string name="equation_celsius_1">[°C] = [°C]</string>
     <string name="equation_celsius_2">[°C] = ([°F]−32)*(5/9)</string>
     <string name="equation_celsius_3">[°C] = [K]−273.15</string>

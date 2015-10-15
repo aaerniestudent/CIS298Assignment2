@@ -31,10 +31,9 @@ The book does not cover how to do work with Radio Buttons. I will talk about it 
 http://stackoverflow.com/questions/7474319/how-to-parse-a-double-from-edittext-to-textview-android
 http://stackoverflow.com/questions/2808535/round-a-double-to-2-decimal-places
 http://stackoverflow.com/questions/24391809/android-check-if-edittext-is-empty
+http://stackoverflow.com/questions/24992936/how-to-check-if-a-radiobutton-is-checked-in-a-radiogroup-in-android
 
 ## Known Problems, Issues, And/Or Errors in the Program
 
 The classes don't work together.
-Doesn't give both warnings.
-I'm lazy, but that isn't a program error.
 
